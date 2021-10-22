@@ -1,0 +1,21 @@
+
+
+CREATE COMPUTE MODULE getGreeting_SetGreeting
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		DECLARE language REFERENCE TO InputLocalEnvironment.REST.Input.Parameters.language;
+		DECLARE greeting CHAR;
+		
+		IF UPPER(language) LIKE '%ENGLISH%' THEN
+			SET greeting = 'Hello';
+		ELSEIF UPPER(language) LIKE '%NORWEGIAN%' THEN
+			SET greeting = 'Heisann';
+		ELSEIF UPPER(language) LIKE '%SPANISH%' THEN
+			SET greeting = 'Hola';
+		END IF;
+		
+		SET OutputRoot.JSON.Data.greeting = greeting; 
+
+		RETURN TRUE;
+	END;
+END MODULE;

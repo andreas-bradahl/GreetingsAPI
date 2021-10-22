@@ -1,0 +1,32 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "title" : "GreetingsAPI",
+    "version" : "1.0.0",
+    "description" : "GreetingsAPI"
+  },
+  "paths" : {
+    "/{language}" : {
+      "get" : {
+        "operationId" : "getGreeting",
+        "responses" : {
+          "200" : {
+            "description" : "The operation was successful.",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        },
+        "produces" : [ "application/json" ],
+        "description" : "Retrieve language",
+        "parameters" : [ {
+          "required" : true,
+          "name" : "language",
+          "in" : "path",
+          "type" : "string"
+        } ]
+      }
+    }
+  },
+  "basePath" : "/greetingsapi/v1"
+}
